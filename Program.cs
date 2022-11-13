@@ -10,7 +10,7 @@ string PrintNumber(int start, int end)
     return (start + " " + PrintNumber(start - 1, end));
 }
 
-// Задача 66: Задайте значения A и B. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.
+// Задача 66: Задайте значения A и B. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от A до B.
 Console.WriteLine("--------------Задача №66.--------------");
 Console.WriteLine("Введите значение A ");
 int A = int.Parse(Console.ReadLine()!);
@@ -24,3 +24,17 @@ int SumElement(int x, int y)
     return x + SumElement(x + 1, y);
 }
 
+// Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
+Console.WriteLine("--------------Задача №68.--------------");
+Console.WriteLine("Введите значение m ");
+int m = int.Parse(Console.ReadLine()!);
+Console.WriteLine("Введите значение n ");
+int n = int.Parse(Console.ReadLine()!);
+Console.WriteLine($"A(m,n) = {AkkermanFunction(m, n)}");
+
+int AkkermanFunction(int m, int n)
+{
+    if (m == 0) return n + 1;
+    else if (m != 0 && n == 0) return AkkermanFunction (m - 1, 1);
+    else return AkkermanFunction(m - 1, AkkermanFunction(m, n - 1));
+}
